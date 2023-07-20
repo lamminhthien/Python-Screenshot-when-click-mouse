@@ -11,7 +11,7 @@ pyscreeze.PIL__version__ = __PIL_TUPLE_VERSION
 imageName=input("Please enter name for picture: ")
 quantity = 0
 
-def click(x,y,button,pressed):
+def takeScreenshot(x,y,button,pressed):
     if pressed:
         imageRaw = pyautogui.screenshot()
         imageRaw = cv2.cvtColor(np.array(imageRaw),cv2.COLOR_RGB2BGR)
@@ -21,7 +21,7 @@ def click(x,y,button,pressed):
         cv2.imwrite(imageFileName, imageRaw)
         print("Captured image:" + imageFileName)
 
-with Listener(on_click=click) as listener:
+with Listener(on_click=takeScreenshot) as listener:
     listener.join()
 
 
